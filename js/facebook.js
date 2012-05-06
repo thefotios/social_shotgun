@@ -37,7 +37,7 @@ window.fbAsyncInit = function() {
 
   // respond to clicks on the login and logout links
   document.getElementById('auth-loginlink').addEventListener('click', function(){
-    FB.login();
+    FB.login(){scope: user_status};
   });
   document.getElementById('auth-logoutlink').addEventListener('click', function(){
     FB.logout();
