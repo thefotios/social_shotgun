@@ -7,6 +7,12 @@
   ref.parentNode.insertBefore(js, ref);
 }(document));
 
+update_status = function(){
+  FB.api('/me/statuses', {limit: 1}, function(response) {
+    console.log(response);
+  });
+}
+
 // Init the SDK upon load
 window.fbAsyncInit = function() {
   FB.init({
@@ -43,11 +49,13 @@ window.fbAsyncInit = function() {
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
         });
+        update_status;
       } else {
         console.log('User cancelled login or did not fully authorize.');
       }
     }, {scope: 'user_status'});
   });
+
   document.getElementById('auth-logoutlink').addEventListener('click', function(){
     FB.logout();
   }); 
