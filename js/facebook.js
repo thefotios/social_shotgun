@@ -14,10 +14,13 @@ get_status = function(){
   });
 }
 
-set_status = function(string){
+set_status = function(){
+  console.log(this)
+/*
   FB.api('/me/feed', 'post', {message: string}, function(response) {
     console.log(response);
   });
+*/
 }
 
 // Init the SDK upon load

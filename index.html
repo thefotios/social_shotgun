@@ -7,7 +7,10 @@
     <div id="fb-root"></div>
     <h1>Update all of your statuses</h1>
     
-    <input id='status' type='text'>
+    <form id=update_status onsubmit='set_status()'>
+      <textarea id=new_status rows=5 cols=100></textarea>
+      <input type="submit" value="Submit" />
+    </form>
 </input>
 
     <h2>Facebook</h2>
@@ -20,7 +23,7 @@
         (<a href="#" id="auth-logoutlink">logout</a>)
         <div>
           Your most recent status update:
-          <textarea id=facebook_status rows=2 cols=80 readonly=readonly></textarea>
+          <textarea id=facebook_status rows=5 cols=100 readonly=readonly></textarea>
         </div>
       </div>
     </div>
