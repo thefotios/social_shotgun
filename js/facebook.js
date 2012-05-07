@@ -10,7 +10,7 @@
 update_status = function(){
   FB.api('/me/statuses', {limit: 1}, function(response) {
     console.log(response);
-    document.getElementById('facebook_status').innerHTML = response[0].message
+    document.getElementById('facebook_status').innerHTML = response.data[0].message
   });
 }
 
