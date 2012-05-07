@@ -7,10 +7,16 @@
   ref.parentNode.insertBefore(js, ref);
 }(document));
 
-update_status = function(){
+get_status = function(){
   FB.api('/me/statuses', {limit: 1}, function(response) {
     console.log(response);
     document.getElementById('facebook_status').innerHTML = response.data[0].message
+  });
+}
+
+set_status = function(string){
+  FB.api('/me/feed', 'post', {message: string}, function(response) {
+    console.log(response);
   });
 }
 
@@ -32,7 +38,7 @@ window.fbAsyncInit = function() {
         if (me.name) {
           document.getElementById('auth-displayname').innerHTML = me.name;
         }
-        update_status();
+        get_status();
       })
       document.getElementById('auth-loggedout').style.display = 'none';
       document.getElementById('auth-loggedin').style.display = 'block';
@@ -54,7 +60,7 @@ window.fbAsyncInit = function() {
       } else {
         console.log('User cancelled login or did not fully authorize.');
       }
-    }, {scope: 'user_status'});
+    }, {scope: 'user_status,publish_stream'});
   });
 
   document.getElementById('auth-logoutlink').addEventListener('click', function(){
