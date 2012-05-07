@@ -37,7 +37,16 @@ window.fbAsyncInit = function() {
 
   // respond to clicks on the login and logout links
   document.getElementById('auth-loginlink').addEventListener('click', function(){
-    FB.login(){scope: user_status};
+    FB.login(function(response) {
+      if (response.authResponse) {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Good to see you, ' + response.name + '.');
+        });
+      } else {
+        console.log('User cancelled login or did not fully authorize.');
+      }
+    }, {script: 'user_status'});
   });
   document.getElementById('auth-logoutlink').addEventListener('click', function(){
     FB.logout();
