@@ -46,7 +46,7 @@ window.fbAsyncInit = function() {
       } else {
         console.log('User cancelled login or did not fully authorize.');
       }
-    }, {script: 'user_status'});
+    }, {scope: 'user_status'});
   });
   document.getElementById('auth-logoutlink').addEventListener('click', function(){
     FB.logout();
