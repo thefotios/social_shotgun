@@ -4,10 +4,8 @@
     <title>Facebook Client-side Authentication Example</title>
   </head>
   <body>
-    <div id="fb-root"></div>
-    <script src='js/facebook.js'></script>
 
-    <h1>Facebook Client-side Authentication Example</h1>
+    <h2>Facebook</h2>
     <div id="auth-status">
       <div id="auth-loggedout">
         <a href="#" id="auth-loginlink">Login</a>
@@ -15,8 +13,12 @@
       <div id="auth-loggedin" style="display:none">
         Hi, <span id="auth-displayname"></span>  
         (<a href="#" id="auth-logoutlink">logout</a>)
+        Your most recent status update:
+        <span id='facebook_status'></span>
       </div>
     </div>
 
+    <div id="fb-root"></div>
+    <script src='js/facebook.js'></script>
   </body>
 </html>
