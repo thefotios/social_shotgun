@@ -31,6 +31,7 @@ window.fbAsyncInit = function() {
         if (me.name) {
           document.getElementById('auth-displayname').innerHTML = me.name;
         }
+        update_status();
       })
       document.getElementById('auth-loggedout').style.display = 'none';
       document.getElementById('auth-loggedin').style.display = 'block';
@@ -49,7 +50,6 @@ window.fbAsyncInit = function() {
         FB.api('/me', function(response) {
           console.log('Good to see you, ' + response.name + '.');
         });
-        update_status();
       } else {
         console.log('User cancelled login or did not fully authorize.');
       }
