@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Facebook Client-side Authentication Example</title>
+    <title>Social Shotgun - Shoot your status everywhere</title>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <h1>Update all of your statuses</h1>
+    
+    <input id='status' type='text'>
+</input>
 
     <h2>Facebook</h2>
     <div id="auth-status">
@@ -14,11 +19,11 @@
         Hi, <span id="auth-displayname"></span>  
         (<a href="#" id="auth-logoutlink">logout</a>)
         Your most recent status update:
+        <textarea rows=2 cols=80 readonly=readonly></textarea>
         <span id='facebook_status'></span>
       </div>
     </div>
 
-    <div id="fb-root"></div>
     <script src='js/facebook.js'></script>
   </body>
 </html>
