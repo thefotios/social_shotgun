@@ -15,12 +15,11 @@ get_status = function(){
 }
 
 set_status = function(){
-  console.log(this)
-/*
-  FB.api('/me/feed', 'post', {message: string}, function(response) {
+  message = document.forms["update_status"]["new_status"].value
+  FB.api('/me/feed', 'post', {message: message}, function(response) {
     console.log(response);
+    get_status();
   });
-*/
 }
 
 // Init the SDK upon load
